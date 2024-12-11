@@ -1,0 +1,7 @@
+{
+  "name": "myEdu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
