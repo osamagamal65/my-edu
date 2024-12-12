@@ -1,2 +1,53 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Nunito/Nunito-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../assets/fonts/Nunito/Nunito-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: normal;
+  src: url('../assets/fonts/Nunito/Nunito-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: bold;
+  src: url('../assets/fonts/Nunito/Nunito-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../assets/fonts/Nunito/Nunito-ExtraBold.ttf');
+}
+
+
+:root {
+  --ion-font-family: "Nunito";
+  --huge-font: 3.5rem;
+}
+
+ion-button {
+  --background: #FFFFFF;
+  --color: #896AF9;
+  --box-shadow: 4px 4px 0px -1px rgb(137, 106, 249);
+  --border-radius: 1.5rem;
+  --border: 1px solid #896AF9;
+  font-weight: 900 !important;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
