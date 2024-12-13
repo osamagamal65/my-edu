@@ -1,6 +1,6 @@
-ion-header,
-ion-toolbar {
-  --background: #AB95F9;
+header,
+nav {
+  background: #AB95F9;
   box-shadow: none !important;
 }
 
@@ -30,4 +30,10 @@ ion-content {
     display: block;
     object-fit: cover !important;
   }
+}
+.pattern-bg {
+  background-image: url("../../assets/imgs/pattern-bg.svg");
+  background-color: #FFF9E6;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
