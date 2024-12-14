@@ -55,7 +55,7 @@ Want to see how it looks on your mobile device? Here’s how:
 
 To ensure everything is working smoothly, you can run the tests with:
 ```bash
-npm test
+ng test
 ```
 
 ### 🛠️ Building the App
