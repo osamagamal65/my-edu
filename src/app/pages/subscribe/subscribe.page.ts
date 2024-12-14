@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonBreadcrumbs, IonBreadcrumb, IonIcon, IonSegment, IonSegmentButton, IonLabel, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonBreadcrumbs, IonBreadcrumb, IonIcon, IonButton } from '@ionic/angular/standalone';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { ToggleButtonComponent } from 'src/app/shared/components/forms/toggle-button/toggle-button.component';
 import { MultiSelectChipsComponent } from "../../shared/components/forms/multi-select-chips/multi-select-chips.component";
@@ -11,7 +11,7 @@ import { MultiSelectChipsComponent } from "../../shared/components/forms/multi-s
   templateUrl: './subscribe.page.html',
   styleUrls: ['./subscribe.page.scss'],
   standalone: true,
-  imports: [IonContent, IonIcon, ToggleButtonComponent, CommonModule, FormsModule, NavbarComponent, IonBreadcrumbs, IonBreadcrumb, MultiSelectChipsComponent, IonButton]
+  imports: [IonContent, ToggleButtonComponent, CommonModule, FormsModule, NavbarComponent, IonBreadcrumbs, IonBreadcrumb, MultiSelectChipsComponent, IonButton]
 })
 export class SubscribePage {
   grades = ['first', 'seconds', 'third', 'fourth', 'fifth', 'six', 'seven'];
@@ -21,7 +21,15 @@ export class SubscribePage {
   selectedMonthIndex = 0;
   selectedGender?: string;
 
-  childInfo: any = {
+  childInfo: {
+    childName: string;
+    childBirthYear: string;
+    childBirthMonth: string;
+    childBirthDay: string;
+    childGrade: string;
+    gender: string;
+    topics: string[];
+  } = {
     childName: '',
     childBirthYear: '',
     childBirthMonth: '',
@@ -30,9 +38,8 @@ export class SubscribePage {
     gender: '',
     topics: []
   }
-  constructor() {
 
-  }
+  // Removed empty constructor
 
   get getYears(): number[] {
     const startYear = 1990;
@@ -48,10 +55,8 @@ export class SubscribePage {
   }
 
   get getDays(): number[] {
-    const daysInMonth = new Date(this.selectedYear, this.selectedMonthIndex + 1, 0).getDate();
-    return Array.from({ length: daysInMonth }, (_, i) => i + 1);
+    return Array.from({ length: new Date(this.selectedYear, this.selectedMonthIndex + 1, 0).getDate() }, (_, i) => i + 1);
   }
-
 
   goToPayment() {
     alert("to Payment");
@@ -63,7 +68,6 @@ export class SubscribePage {
 
   onGenderChange(val: string) {
     this.childInfo.gender = val;
-
   }
 
   onTopicChange(val: string[]) {
