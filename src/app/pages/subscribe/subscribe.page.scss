@@ -1,0 +1,12 @@
+ion-content {
+  --background: white;
+
+  @media screen and (min-width: 1060px) {
+    background-image: url(/assets/images/pattern-bg-2.jpg);
+  }
+}
+
+ion-button{
+  --border-radius: 1rem;
+  height: 55px;
+}

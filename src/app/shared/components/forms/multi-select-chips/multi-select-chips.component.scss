@@ -1,0 +1,36 @@
+.chip-button {
+  border: 1px solid rgba(225, 227, 230, 1);
+  padding: 4px 20px 4px 20px;
+  border-radius: 48px;
+  font-size: 16px;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #667085;
+  transition: all .3s;
+  cursor: pointer;
+
+  &.selected {
+    color: #6633FF;
+    border-color: #6633FF;
+    background-color: #F4F1FE;
+  }
+}
+
+.chip-button input[type="checkbox"] {
+  display: none;
+}
+
+.chip-button:hover {
+  background-color: #EDE7F6;
+}
+
+.chip-button input[type="checkbox"]+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0px !important;
+
+}

@@ -1,3 +1,148 @@
 <ion-content [fullscreen]="true">
   <app-navbar></app-navbar>
+  <div class="flex justify-center items-center py-10">
+    <div
+      class="grid grid-col-1 lg:grid-cols-2 border lg:min-w-[1012px] lg:min-h-[1060px] sm:min-width-[328px] border-[#BFB8D7] rounded-3xl">
+      <div class="col-span-1 flex flex-col px-4 py-8 rounded-3xl h-[100%]">
+        <div class="border-b pb-4 mb-4 border-[#D1C5FB]">
+          <h3 class="text-2xl font-bold">Subscribe</h3>
+          <p class="text-base font-normal ">to our Monthly Surprise Box</p>
+          <ion-breadcrumbs class="pt-4 hidden lg:flex">
+            <ion-breadcrumb href="#">
+              home
+              <ion-icon slot="separator" name="chevron-forward-outline"></ion-icon>
+            </ion-breadcrumb>
+            <ion-breadcrumb href="#">
+              Cart
+              <ion-icon slot="separator" name="chevron-forward-outline"></ion-icon>
+            </ion-breadcrumb>
+            <ion-breadcrumb href="#">
+              Information
+              <ion-icon slot="separator" name="chevron-forward-outline"></ion-icon>
+            </ion-breadcrumb>
+            <ion-breadcrumb href="#">
+              Payment
+              <ion-icon slot="separator" name="chevron-forward-outline"></ion-icon>
+            </ion-breadcrumb>
+          </ion-breadcrumbs>
+
+        </div>
+        <form class="mb-8">
+          <h4 class="text-xl font-bold pb-2 mb-2">Contact Information</h4>
+
+          <div class="input-field">
+            <label for="yourName">Your Name</label>
+            <input type="text" id="yourName" name="Name" placeholder="Enter your Name" />
+          </div>
+
+          <div class="input-field">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter your Email" />
+          </div>
+        </form>
+        <form class="mb-8">
+          <h4 class="text-xl font-bold pb-2 mb-2">Child’s Information</h4>
+
+          <div class="input-field">
+            <label for="childsFullName">Child’s Full Name</label>
+            <input [(ngModel)]="childInfo.childName" type="text" id="childsFullName" name="child's full name"
+              placeholder="Enter your child's namne" />
+          </div>
+
+          <div class="input-field">
+            <label for="childs_birthdate">Child’s Date of Birth</label>
+            <div class="grid grid-cols-3 items-center gap-2">
+              <select required id="childs_birthdate" title="child-birth-year" placeholder="Date" name="child-birth-year"
+                [(ngModel)]="childInfo.childBirthYear">
+                <option value="" disabled selected hidden>Year</option>
+
+                @for(year of getYears; track year) {
+                <option>{{year}}</option>
+                }
+              </select>
+              <select required title="child-birth-month" placeholder="Month" name="child-birth-month"
+                [(ngModel)]="childInfo.childBirthMonth">
+                <option value="" disabled selected hidden>Month</option>
+
+                @for(month of getMonths; track month) {
+                <option [value]="$index">{{month}}</option>
+                }
+              </select>
+              <select required title="child-birth-day" placeholder="Year" name="child-birth-day"
+                [(ngModel)]="childInfo.childBirthDay">
+                <option value="" disabled selected hidden>Day</option>
+
+                @for(day of getDays; track day) {
+                <option [value]="day">{{day}}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label for="grade">Grade</label>
+            <select required title="Grade" placeholder="Grade" name="grade" [(ngModel)]="childInfo.childGrade">
+              <option value="" disabled selected hidden>Grade</option>
+              @for(grade of grades; track grade) {
+              <option>{{grade}}</option>
+              }
+            </select>
+          </div>
+
+          <app-toggle-button [groupName]="'gender'" [label]="'Gender'" [options]="genders"
+            (toggleChange)="onGenderChange($event)"></app-toggle-button>
+          <h6 class="text-xl font-bold mb-3">As a parent select any 3 topics</h6>
+          <app-multi-select-chips [options]="topics" [groupName]="'topics'"
+            (toggleChange)="onTopicChange($event)"></app-multi-select-chips>
+        </form>
+
+        <ion-button class="self-center justify-self-end mt-20 hidden lg:flex" (click)="goToPayment()">Continue to
+          payment</ion-button>
+
+      </div>
+      <div
+        class=" col-span-1 flex flex-col p-8 bg-[#F1EDFE] md:rounded-tr-3xl rounded-br-3xl sm:rounded-br-3xl sm:rounded-bl-3xl">
+        <div class="border-b pb-4 mb-4 border-[#D1C5FB]">
+          <h3 class="text-2xl font-bold">Summery</h3>
+          <p class="text-base font-normal ">of your Monthly Surprise Box</p>
+        </div>
+        <div class="bg-white rounded-lg p-4 pb-10 flex justify-between">
+          <div class="flex flex-col gap-1">
+            <h6 class="text-base font-bold">Mystery Box</h6>
+            <span class="text-xs font-normal text-[#838383]">X 1</span>
+          </div>
+          <div class="flex flex-col items-end gap-1">
+            <h6 class="text-base">SAR <strong class="text-bold">{{totalPrice}}</strong></h6>
+            <span class="text-xs font-normal text-[#838383]">Monthly</span>
+          </div>
+
+        </div>
+
+        <div class="flex flex-col gap-2 py-4 border-b border-[#D1C5FB]">
+          <div class="flex justify-between">
+            <p class="text-base font-sfp">Subtotal</p>
+            <p class="text-base">SAR <strong>{{totalPrice | number}}</strong></p>
+          </div>
+          <div class="flex justify-between">
+            <p class="text-base font-sfp">Shipping</p>
+            <p class="text-base text-[#707070]">Free</p>
+          </div>
+
+          <div class="flex justify-between">
+            <p class="text-base font-sfp">Taxes</p>
+            <p class="text-base">SAR <strong>{{4 | number}} </strong></p>
+          </div>
+
+        </div>
+        <div class="flex justify-between items-center mt-6">
+          <p class="text-lg font-sfp font-bold">Total</p>
+          <p class="text-xl">SAR <strong>{{totalPrice + 4 | number}}</strong></p>
+        </div>
+        <ion-button class="self-center justify-self-end mt-6 lg:hidden" (click)="goToPayment()">Continue
+          to payment</ion-button>
+
+      </div>
+    </div>
+
+  </div>
 </ion-content>

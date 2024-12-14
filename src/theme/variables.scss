@@ -34,12 +34,80 @@
   font-weight: 900;
   src: url('../assets/fonts/Nunito/Nunito-Black.ttf');
 }
-
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/SFProText-Regular.ttf');
+}
 
 
 :root {
   --ion-font-family: "Nunito";
   --huge-font: 3.5rem;
+  --ion-color-primary: #896AF9;
+	--ion-color-primary-rgb: 137,106,249;
+	--ion-color-primary-contrast: #000000;
+	--ion-color-primary-contrast-rgb: 0,0,0;
+	--ion-color-primary-shade: #795ddb;
+	--ion-color-primary-tint: #9579fa;
+
+	--ion-color-secondary: #AB95F9;
+	--ion-color-secondary-rgb: 171,149,249;
+	--ion-color-secondary-contrast: #000000;
+	--ion-color-secondary-contrast-rgb: 0,0,0;
+	--ion-color-secondary-shade: #9683db;
+	--ion-color-secondary-tint: #b3a0fa;
+
+	--ion-color-tertiary: #D1C5FB;
+	--ion-color-tertiary-rgb: 209,197,251;
+	--ion-color-tertiary-contrast: #000000;
+	--ion-color-tertiary-contrast-rgb: 0,0,0;
+	--ion-color-tertiary-shade: #b8addd;
+	--ion-color-tertiary-tint: #d6cbfb;
+
+	--ion-color-success: #2dd55b;
+	--ion-color-success-rgb: 45,213,91;
+	--ion-color-success-contrast: #000000;
+	--ion-color-success-contrast-rgb: 0,0,0;
+	--ion-color-success-shade: #28bb50;
+	--ion-color-success-tint: #42d96b;
+
+	--ion-color-warning: #ffc409;
+	--ion-color-warning-rgb: 255,196,9;
+	--ion-color-warning-contrast: #000000;
+	--ion-color-warning-contrast-rgb: 0,0,0;
+	--ion-color-warning-shade: #e0ac08;
+	--ion-color-warning-tint: #ffca22;
+
+	--ion-color-danger: #c5000f;
+	--ion-color-danger-rgb: 197,0,15;
+	--ion-color-danger-contrast: #ffffff;
+	--ion-color-danger-contrast-rgb: 255,255,255;
+	--ion-color-danger-shade: #ad000d;
+	--ion-color-danger-tint: #cb1a27;
+
+	--ion-color-light: #fffffff;
+	--ion-color-light-rgb: 255,255,255;
+	--ion-color-light-contrast: #000000;
+	--ion-color-light-contrast-rgb: 0,0,0;
+	--ion-color-light-shade: #e0e0e0;
+	--ion-color-light-tint: #ffffff;
+
+	--ion-color-medium: #5f5f5f;
+	--ion-color-medium-rgb: 95,95,95;
+	--ion-color-medium-contrast: #ffffff;
+	--ion-color-medium-contrast-rgb: 255,255,255;
+	--ion-color-medium-shade: #545454;
+	--ion-color-medium-tint: #6f6f6f;
+
+	--ion-color-dark: #2f2f2f;
+	--ion-color-dark-rgb: 47,47,47;
+	--ion-color-dark-contrast: #ffffff;
+	--ion-color-dark-contrast-rgb: 255,255,255;
+	--ion-color-dark-shade: #292929;
+	--ion-color-dark-tint: #444444;
+
 }
 
 ion-button {
@@ -51,4 +119,7 @@ ion-button {
   font-weight: 900 !important;
   font-size: 1.5rem;
   text-transform: capitalize;
+  --border-color: #896AF9;
+  --border-width: 1px;
+  --border-style: solid;
 }

@@ -1,0 +1,13 @@
+<div class="input-field">
+  <label *ngIf="label">
+    {{label}}
+  </label>
+  <div class="flex gap-2 flex-wrap">
+    <div class="chip-button" *ngFor="let option of options" [class.selected]="selectedOptions.includes(option.value ?? option)" (click)="onOptionChange(option.value ?? option)">
+      <input type="checkbox" [id]="option.value ?? option" [name]="groupName" [value]="option.value ?? option" />
+      <label [for]="option.value">
+        {{  option.label ?? option }}
+      </label>
+    </div>
+  </div>
+</div>

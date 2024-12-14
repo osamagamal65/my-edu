@@ -1,0 +1,40 @@
+.toggle-button {
+  display: inline-block;
+  border: 1px solid #BFB8D7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color color 0.3s;
+  padding: 10px 20px;
+
+  svg {
+    color: #D0D5DD;
+    transition: background-color color 0.3s;
+
+  }
+
+  &.selected {
+    color: rgba(102, 51, 255, 1);
+    background-color: rgba(244, 241, 254, 1);
+    border-color: rgba(102, 51, 255, 1);
+
+    svg {
+      color: rgba(102, 51, 255, 1);
+
+    }
+  }
+}
+
+.toggle-button input[type="radio"] {
+  display: none;
+}
+
+.toggle-button:hover {
+  background-color: #EDE7F6;
+}
+
+.toggle-button input[type="radio"]+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
